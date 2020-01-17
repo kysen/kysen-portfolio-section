@@ -8,8 +8,9 @@ import ericPage from "../../assets/images/portfolio-thumbnails/eric-page.png"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.background.main,
-    color: theme.palette.primary.main,
+    background: "rgb(36,36,36)",
+    background: "linear-gradient(180deg, rgba(36,36,36,1) 0%, rgba(145,145,145,1) 100%)",
+    color: theme.palette.primary.light,
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
@@ -77,12 +78,12 @@ const renderPorfolioItem = (classes) => {
   return portfolioItems.map((item, index) => {
     return (
       <Grid item xs={12} key={index}>
-        <Paper className={classes.paper}>
+        {/* <Paper className={classes.paper}>
           <Box component="div" className={classes.descriptionWrapper}>
             <Box component="div" className={classes.description}>{item.description}</Box>
           </Box>
           <Box component="img" src={item.thumbnail} className={classes.thumbnail} />
-        </Paper>
+        </Paper> */}
         <Typography>
           <Link color="primary" href={item.url}>{item.title}</Link>
         </Typography>
