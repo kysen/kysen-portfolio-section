@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  AppBar,
+  // AppBar,
   Toolbar,
-  //   Typography,
   IconButton,
   Tabs,
   Tab,
@@ -12,30 +11,58 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
-function ElevationScroll(props) {
-  const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-    target: window ? window() : undefined,
-  });
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
+function ListItemLink(props) {
+  const { primary, to } = props;
+
+  const renderLink = React.useMemo(
+    () =>
+      React.forwardRef((itemProps, ref) => (
+        <RouterLink to={to} ref={ref} {...itemProps} />
+      )),
+    [to],
+  );
+
+  return (
+    <li>
+      <ListItem button component={renderLink}>
+        <ListItemText primary={primary} />
+      </ListItem>
+    </li>
+  );
 }
 
-ElevationScroll.propTypes = {
-  children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
+ListItemLink.propTypes = {
+  icon: PropTypes.element,
+  primary: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
 };
+
+// function ElevationScroll(props) {
+//   const { children, window } = props;
+//   // Note that you normally won't need to set the window ref as useScrollTrigger
+//   // will default to window.
+//   // This is only being set here because the demo is in an iframe.
+//   const trigger = useScrollTrigger({
+//     disableHysteresis: true,
+//     threshold: 0,
+//     target: window ? window() : undefined,
+//   });
+//   return React.cloneElement(children, {
+//     elevation: trigger ? 4 : 0,
+//   });
+// }
+// ElevationScroll.propTypes = {
+//   children: PropTypes.element.isRequired,
+//   /**
+//    * Injected by the documentation to work in an iframe.
+//    * You won't need it on your project.
+//    */
+//   window: PropTypes.func,
+// };
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -55,9 +82,19 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Navbar(props) {
+function usePageViews(setValue) {
+  let location = useLocation();
+  React.useEffect(() => {
+    setValue(location.pathname);
+  }, [location]);
+}
+
+function Navbar() {
   const classes = useStyles();
-  const [value, setValue] = React.useState("about");
+  const [value, setValue] = React.useState("/");
+
+  // TODO
+  usePageViews(setValue);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -83,11 +120,17 @@ function Navbar(props) {
         className={classes.tabs}
         // indicatorColor="primary"
       >
-        <Tab label="About" value="about" />
-        <Tab label="Past Work" />
+        <Tab label="About" value="/" component={RouterLink} to={"/"} />
+        <Tab
+          label="Past Work"
+          value="/past-work"
+          component={RouterLink}
+          to={"/past-work"}
+        />
       </Tabs>
     </Toolbar>
     /* </AppBar> */
+
     // </ElevationScroll>
   );
 }
