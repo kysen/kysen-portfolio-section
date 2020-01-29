@@ -46,7 +46,8 @@ const useStyles = makeStyles(theme => ({
   tabs: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "stretch"
+    alignItems: "stretch",
+    color: theme.palette.primary.main
   },
   menuButton: {
     color: "#ffffff"
@@ -80,9 +81,7 @@ function Navbar() {
         className={classes.menuButton}
         aria-label="menu"
         style={{ display: "none" }}
-      >
-        <MenuIcon />
-      </IconButton>
+      />
       <Tabs
         value={value}
         onChange={handleChange}
