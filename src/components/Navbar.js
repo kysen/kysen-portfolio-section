@@ -1,15 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  // AppBar,
-  Toolbar,
-  IconButton,
-  Tabs,
-  Tab,
-} from "@material-ui/core";
+import { Toolbar, IconButton, Tabs, Tab } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -23,7 +16,7 @@ function ListItemLink(props) {
       React.forwardRef((itemProps, ref) => (
         <RouterLink to={to} ref={ref} {...itemProps} />
       )),
-    [to],
+    [to]
   );
 
   return (
@@ -38,31 +31,8 @@ function ListItemLink(props) {
 ListItemLink.propTypes = {
   icon: PropTypes.element,
   primary: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired
 };
-
-// function ElevationScroll(props) {
-//   const { children, window } = props;
-//   // Note that you normally won't need to set the window ref as useScrollTrigger
-//   // will default to window.
-//   // This is only being set here because the demo is in an iframe.
-//   const trigger = useScrollTrigger({
-//     disableHysteresis: true,
-//     threshold: 0,
-//     target: window ? window() : undefined,
-//   });
-//   return React.cloneElement(children, {
-//     elevation: trigger ? 4 : 0,
-//   });
-// }
-// ElevationScroll.propTypes = {
-//   children: PropTypes.element.isRequired,
-//   /**
-//    * Injected by the documentation to work in an iframe.
-//    * You won't need it on your project.
-//    */
-//   window: PropTypes.func,
-// };
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -70,23 +40,24 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "flex-end",
     width: "80vw",
-    indicator: "none",
+    indicator: "none"
   },
-  //   indicator: {
-  //     display: "none",
-  //   },
+
   tabs: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "stretch",
+    alignItems: "stretch"
   },
+  menuButton: {
+    color: "#ffffff"
+  }
 }));
 
 function usePageViews(setValue) {
   let location = useLocation();
   React.useEffect(() => {
     setValue(location.pathname);
-  }, [location]);
+  }, [setValue, location]);
 }
 
 function Navbar() {
@@ -107,7 +78,6 @@ function Navbar() {
       <IconButton
         edge="start"
         className={classes.menuButton}
-        color="inherit"
         aria-label="menu"
         style={{ display: "none" }}
       >
