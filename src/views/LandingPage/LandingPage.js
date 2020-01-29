@@ -1,5 +1,5 @@
 import React from "react";
-import HomeScreen from "../HomeScreen/HomeScreen";
+import HomeScreen from "./HomeScreen/HomeScreen";
 
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";

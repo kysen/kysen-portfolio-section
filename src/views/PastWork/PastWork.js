@@ -1,6 +1,7 @@
 import React from "react";
 
 import Websites from "./Websites/Websites";
+import Widgets from "./Widgets/Widgets";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -20,6 +21,7 @@ function PastWork() {
   return (
     <div className={classes.root}>
       <Websites />
+      <Widgets />
     </div>
   );
 }
