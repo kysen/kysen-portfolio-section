@@ -15,27 +15,27 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 40,
+    marginTop: 40
   },
   paper: {
     display: "flex",
     flexDirection: "column",
 
     "&:hover": {
-      textDecoration: "none",
-    },
+      textDecoration: "none"
+    }
   },
   thumbnail: {
     width: "100%",
     height: "width",
     borderTopLeftRadius: 4,
-    borderTopRightRadius: 4,
+    borderTopRightRadius: 4
   },
   title: {
-    color: "",
+    color: ""
   },
   gridContainer: {
-    marginTop: 40,
+    marginTop: 40
   },
   item: {
     cursor: "pointer",
@@ -43,9 +43,9 @@ const useStyles = makeStyles(theme => ({
     transition: ".2s ease-in-out",
 
     "&:hover": {
-      filter: "brightness(100%)",
-    },
-  },
+      filter: "brightness(100%)"
+    }
+  }
 }));
 
 const portfolioItems = [
@@ -54,22 +54,22 @@ const portfolioItems = [
     thumbnail: ericThumb,
     screenShot: friesSite,
     description: "description",
-    url: "https://www.ericaroca.com/",
+    url: "https://www.ericaroca.com/"
   },
   {
     title: "Big Mountain Barbell",
     thumbnail: barbellThumb,
     screenShot: friesSite,
     description: "description",
-    url: "https://bmbarbell.netlify.com/",
+    url: "https://bmbarbell.netlify.com/"
   },
   {
     title: "Dev Camp Fries",
     thumbnail: friesThumb,
     screenShot: friesSite,
     description: "description",
-    url: "https://devcamp-fries-kmj.netlify.com/",
-  },
+    url: "https://devcamp-fries-kmj.netlify.com/"
+  }
 ];
 
 const renderPorfolioItem = classes => {
@@ -97,7 +97,7 @@ function PastWork() {
   return (
     <div className={classes.root}>
       <Typography variant="h3" className={classes.title}>
-        Past Work
+        Websites
       </Typography>
       <Grid container spacing={8} className={classes.gridContainer}>
         {renderPorfolioItem(classes)}
