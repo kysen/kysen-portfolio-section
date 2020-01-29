@@ -20,6 +20,15 @@ function HomeScreen() {
       <Typography component="div" className={classes.header} variant="h2">
         <Box textAlign="center">Kysen Jackman</Box>{" "}
       </Typography>
+      <Typography component="div" className={classes.header} variant="h5">
+        <Box textAlign="center">
+          Portfolio Website for Kysen Jackman, Fullstack Web Developer with
+          React.js and Python
+        </Box>{" "}
+      </Typography>
+      <Typography component="div" className={classes.header} variant="h6">
+        <Box textAlign="center">This website is a work in progress</Box>{" "}
+      </Typography>
     </div>
   );
 }
