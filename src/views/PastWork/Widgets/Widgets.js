@@ -17,20 +17,19 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
 
     "&:hover": {
-      textDecoration: "none"
-    }
+      textDecoration: "none",
+    },
   },
   thumbnail: {
     width: "100%",
     height: "width",
     borderTopLeftRadius: 4,
-    borderTopRightRadius: 4
+    borderTopRightRadius: 4,
   },
   title: {
-    // color: ""
   },
   gridContainer: {
-    marginTop: 40
+    marginTop: 40,
   },
   item: {
     filter: "brightness(60%)",

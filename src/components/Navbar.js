@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { Toolbar, IconButton, Tabs, Tab } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import { Toolbar, Tabs, Tab } from "@material-ui/core";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -16,7 +15,7 @@ function ListItemLink(props) {
       React.forwardRef((itemProps, ref) => (
         <RouterLink to={to} ref={ref} {...itemProps} />
       )),
-    [to]
+    [to],
   );
 
   return (
@@ -31,7 +30,7 @@ function ListItemLink(props) {
 ListItemLink.propTypes = {
   icon: PropTypes.element,
   primary: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired
+  to: PropTypes.string.isRequired,
 };
 
 const useStyles = makeStyles(theme => ({
@@ -40,18 +39,15 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "flex-end",
     width: "80vw",
-    indicator: "none"
+    indicator: "none",
   },
 
   tabs: {
     display: "flex",
     flexDirection: "column",
     alignItems: "stretch",
-    color: theme.palette.primary.main
+    color: theme.palette.primary.main,
   },
-  menuButton: {
-    color: "#ffffff"
-  }
 }));
 
 function usePageViews(setValue) {
@@ -73,21 +69,12 @@ function Navbar() {
   };
 
   return (
-    // <ElevationScroll {...props}>
-    // <AppBar position="fixed" className={classes.root} color="background.dark">
     <Toolbar className={classes.splitNavbar}>
-      <IconButton
-        edge="start"
-        className={classes.menuButton}
-        aria-label="menu"
-        style={{ display: "none" }}
-      />
       <Tabs
         value={value}
         onChange={handleChange}
         aria-label="simple tabs example"
         className={classes.tabs}
-        // indicatorColor="primary"
       >
         <Tab label="About" value="/" component={RouterLink} to={"/"} />
         <Tab
@@ -98,9 +85,6 @@ function Navbar() {
         />
       </Tabs>
     </Toolbar>
-    /* </AppBar> */
-
-    // </ElevationScroll>
   );
 }
 

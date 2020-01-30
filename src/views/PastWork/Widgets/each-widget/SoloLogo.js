@@ -20,6 +20,7 @@ function SoloLogo() {
       </div>
     </div>
   );
+
 }
 
 export default SoloLogo;

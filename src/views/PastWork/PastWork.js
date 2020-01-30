@@ -11,8 +11,9 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 40
-  }
+    marginTop: 40,
+    color: theme.palette.primary.secondary,
+  },
 }));
 
 function PastWork() {

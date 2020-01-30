@@ -4,14 +4,10 @@ import Navbar from "./components/Navbar";
 import LandingPage from "./views/LandingPage/LandingPage";
 import PastWork from "./views/PastWork/PastWork";
 
-import { ThemeProvider } from "@material-ui/core/styles";
 import { CssBaseline, Container } from "@material-ui/core";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { blue } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
-
-import theme from "./components/theme";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,24 +16,23 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.light,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
   },
   gridContainer: {
-    color: blue[100],
     alignItems: "center",
     marginTop: 5,
-    width: "80vw"
+    width: "80vw",
   },
   paper: {
     backgroundColor: "black",
     color: theme.palette.primary.main,
     height: "80vw",
-    cursor: "pointer"
+    cursor: "pointer",
   },
   thumbnail: {
     height: "100%",
     width: "100%",
-    objectFit: "cover"
+    objectFit: "cover",
   },
   descriptionWrapper: {
     position: "absolute",
@@ -49,19 +44,19 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
 
     "&:hover": {
-      color: "red"
-    }
+      color: "red",
+    },
   },
   description: {
     // display: "none"
-  }
+  },
 }));
 
 const App = () => {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme}>
+    <div>
       <CssBaseline />
       <BrowserRouter>
         <Navbar />
@@ -76,7 +71,7 @@ const App = () => {
           </Route>
         </Switch>
       </BrowserRouter>
-    </ThemeProvider>
+    </div>
   );
 };
 
