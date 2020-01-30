@@ -1,15 +1,16 @@
 import React from "react";
 
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import SoloLogo from "./each-widget/SoloLogo";
 
 const useStyles = makeStyles(theme => ({
-  websites: {
+  root: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: "40px"
   },
   paper: {
     display: "flex",
@@ -26,14 +27,13 @@ const useStyles = makeStyles(theme => ({
     borderTopRightRadius: 4
   },
   title: {
-    color: ""
+    // color: ""
   },
   gridContainer: {
     marginTop: 40
   },
   item: {
-    cursor: "pointer",
-    filter: "brightness(80%)",
+    filter: "brightness(60%)",
     transition: ".2s ease-in-out",
 
     "&:hover": {
@@ -44,7 +44,8 @@ const useStyles = makeStyles(theme => ({
 
 const widgets = [
   {
-    component: <SoloLogo />
+    component: <SoloLogo />,
+    title: "Spinning Logo"
   }
 ];
 
@@ -52,7 +53,8 @@ const renderPorfolioItem = classes => {
   return widgets.map((item, index) => {
     return (
       <Grid className={classes.item} item xs={12} md={6} lg={4} key={index}>
-        {item.component}
+        <Paper>{item.component}</Paper>
+        <Typography>{item.title}</Typography>
       </Grid>
     );
   });
@@ -62,7 +64,7 @@ function Websites() {
   const classes = useStyles();
 
   return (
-    <div className={classes.websites}>
+    <div className={classes.root}>
       <Typography variant="h3" className={classes.title} color="primary">
         Widgets
       </Typography>
