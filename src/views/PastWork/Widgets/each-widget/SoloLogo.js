@@ -1,14 +1,26 @@
 import React from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
-
-const useStyles = makeStyles(theme => ({ root: {} }));
+import "./SoloLogo.scss";
 
 function SoloLogo() {
-  const classes = useStyles();
+  return (
+    <div className="solo-widget">
+      <div className="container">
+        <div className="one" />
+        <div className="two" />
+        <div className="three-four" />
+        <div className="four-three" />
+        <div className="five" />
+        <div className="six" />
+        <div className="seven" />
+        <div className="eight" />
+        <div className="nine" />
+        <div className="ten" />
+        <div className="eleven" />
+      </div>
+    </div>
+  );
 
-  return <Typography component="div">Solo Logo</Typography>;
 }
 
 export default SoloLogo;
