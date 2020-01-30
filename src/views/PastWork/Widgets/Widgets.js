@@ -7,45 +7,38 @@ import SoloLogo from "./each-widget/SoloLogo";
 
 const useStyles = makeStyles(theme => ({
   websites: {
+    marginTop: "5rem",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
   },
   paper: {
     display: "flex",
     flexDirection: "column",
 
     "&:hover": {
-      textDecoration: "none"
-    }
+      textDecoration: "none",
+    },
   },
   thumbnail: {
     width: "100%",
     height: "width",
     borderTopLeftRadius: 4,
-    borderTopRightRadius: 4
+    borderTopRightRadius: 4,
   },
   title: {
-    color: ""
+    color: "",
   },
   gridContainer: {
-    marginTop: 40
+    marginTop: 40,
   },
-  item: {
-    cursor: "pointer",
-    filter: "brightness(80%)",
-    transition: ".2s ease-in-out",
-
-    "&:hover": {
-      filter: "brightness(100%)"
-    }
-  }
+  item: {},
 }));
 
 const widgets = [
   {
-    component: <SoloLogo />
-  }
+    component: <SoloLogo />,
+  },
 ];
 
 const renderPorfolioItem = classes => {
