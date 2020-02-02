@@ -1,18 +1,19 @@
 import React from "react";
 
-import { Grid, Typography, Paper } from "@material-ui/core";
+import { Grid, Typography, Paper, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import SoloLogo from "./each-widget/SoloLogo";
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  widgetsRoot: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: "40px"
+    marginTop: 40,
+    width: "100%",
   },
-  paper: {
+  widgetPaper: {
     display: "flex",
     flexDirection: "column",
 
@@ -20,40 +21,38 @@ const useStyles = makeStyles(theme => ({
       textDecoration: "none",
     },
   },
-  thumbnail: {
-    width: "100%",
-    height: "width",
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 4,
-  },
-  title: {
-  },
+
+  title: {},
   gridContainer: {
     marginTop: 40,
   },
-  item: {
-    filter: "brightness(60%)",
-    transition: ".2s ease-in-out",
-
-    "&:hover": {
-      filter: "brightness(100%)"
-    }
-  }
+  gridItem: {
+    display: "flex",
+    flexDirection: "column",
+  },
 }));
 
 const widgets = [
   {
     component: <SoloLogo />,
-    title: "Spinning Logo"
-  }
+    title: "Spinning Logo",
+  },
 ];
 
 const renderPorfolioItem = classes => {
   return widgets.map((item, index) => {
     return (
-      <Grid className={classes.item} item xs={12} md={6} lg={4} key={index}>
-        <Paper>{item.component}</Paper>
-        <Typography>{item.title}</Typography>
+      <Grid className={classes.gridItem} item xs={12} md={6} lg={4} key={index}>
+        <Paper className={classes.widgetPaper}>
+          <Box>{item.component}</Box>
+          <Typography
+            align="center"
+            variant="h6"
+            className={classes.paperTitle}
+          >
+            {item.title}
+          </Typography>
+        </Paper>
       </Grid>
     );
   });
@@ -63,7 +62,7 @@ function Websites() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.widgetsRoot}>
       <Typography variant="h3" className={classes.title} color="primary">
         Widgets
       </Typography>

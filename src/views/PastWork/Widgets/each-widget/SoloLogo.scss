@@ -9,7 +9,7 @@
 }
 
 @keyframes threefifteen {
-  0%  {
+  0% {
     transform: rotate(-46deg);
   }
   100% {
@@ -17,7 +17,7 @@
   }
 }
 @keyframes zero {
-  0%  {
+  0% {
     transform: rotate(359deg);
   }
   100% {
@@ -25,7 +25,7 @@
   }
 }
 @keyframes fourtyfive {
-  0%  {
+  0% {
     transform: rotate(45deg);
   }
   100% {
@@ -33,7 +33,7 @@
   }
 }
 @keyframes oneeighty {
-  0%  {
+  0% {
     transform: rotate(180deg);
   }
   100% {
@@ -41,7 +41,7 @@
   }
 }
 @keyframes oneten {
-  0%  {
+  0% {
     transform: rotate(110deg);
   }
   100% {
@@ -53,97 +53,129 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 700px;
-  height: 700px;
   background-color: black;
   border-radius: 4px;
   cursor: default;
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
   .container {
-    height: 700px;
-    width: 700px;
-    max-width: 700px;
+    width: 100%;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
     div:after {
       content: "";
       display: block;
       padding-bottom: 100%;
     }
-    
+
     .one {
       @include arc;
-      border-width: 8px;
+      border-width: 4px;
       width: 84%;
       animation: oneten 13s infinite linear;
     }
     .two {
       @include arc;
-      border-width: 11px;
+      border-width: 5px;
       width: 80%;
       border-right-color: transparent;
+
       animation: zero 100s infinite linear;
     }
     .three-four {
       @include arc;
-      border-width: 13px;
+      border-width: 7px;
       width: 77%;
       border-right-color: transparent;
       animation: fourtyfive 20s infinite linear;
     }
     .four-three {
       @include arc;
-      border-width: 6px;
+      border-width: 3px;
       width: 74%;
       border-right-color: transparent;
       animation: threefifteen 20s infinite linear;
-
     }
     .five {
       @include arc;
-      border-width: 15px;
+      border-width: 8px;
       width: 70%;
       animation: oneeighty 30s infinite linear;
     }
     .six {
       @include arc;
-      border-width: 11px;
+      border-width: 6px;
       width: 65%;
-      animation: threefifteen 12s infinite linear;
+      animation: threefifteen 10s infinite linear;
     }
     .seven {
       @include arc;
-      border-width: 7px;
+      border-width: 4px;
       width: 60%;
-      animation: oneten 12s infinite linear;
-
+      animation: oneten 24s infinite linear;
     }
     .eight {
       @include arc;
-      border-width: 11px;
-      width: 53%;
+      border-width: 6px;
+      width: 54%;
       animation: zero 40s infinite linear;
     }
     .nine {
       @include arc;
-      border-width: 6px;
+      border-width: 3px;
       width: 52%;
       animation: fourtyfive 10s infinite linear;
     }
     .ten {
       @include arc;
-      border-width: 12px;
-      width:43%;
-      animation: threefifteen 12s infinite linear;
+      border-width: 6px;
+      width: 43%;
+      animation: threefifteen 20s infinite linear;
     }
     .eleven {
       @include arc;
-      border-width: 6px;
-      width:38%;
-      animation: zero 24s infinite linear;
+      border-width: 3px;
+      width: 38%;
+      animation: zero 9s infinite linear;
+    }
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .solo-widget {
+    .container {
+      .three-four {
+        border-width: 5px;
+      }
+      .four-three {
+        border-width: 2px;
+      }
+      .six {
+        width: 67%;
+        border-width: 4px;
+      }
+      .seven {
+        width: 65%;
+        border-width: 7px;
+      }
+      .five {
+        border-width: 3px;
+        width: 44%;
+        animation: oneeighty 5s infinite linear;
+      }
+      .eleven {
+        width: 35%;
+      }
     }
   }
 }

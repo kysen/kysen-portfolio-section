@@ -38,8 +38,8 @@ const useStyles = makeStyles(theme => ({
   splitNavbar: {
     display: "flex",
     justifyContent: "flex-end",
-    width: "80vw",
     indicator: "none",
+    marginRight: "8%",
   },
 
   tabs: {
