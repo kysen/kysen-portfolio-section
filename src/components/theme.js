@@ -8,34 +8,20 @@ let theme = createMuiTheme({
       light: "#fafafa",
       main: "#eeeeee",
       dark: "#bdbdbd",
-      contrastText: "#000",
+      contrastText: "#000"
     },
     secondary: {
       light: teal[200],
       main: teal[500],
       dark: teal[800],
-      contrastText: "#fff",
-      contrastTextDark: "#000",
+      contrastText: "#fff"
     },
-    common: {
-      black: "red",
-    },
-
-    text: {
-      primary: {
-        main: "black",
-      },
-    },
-    background: {
-      default: grey[900],
-      paper: grey[800],
-    },
-  },
-  fonts: {
-    title: {
-      fontSize: 30,
-    },
-  },
+    // background: {
+    //   default: grey[900],
+    //   paper: grey[800]
+    // },
+    type: "dark"
+  }
 });
 
 theme = responsiveFontSizes(theme);

@@ -11,22 +11,22 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background: theme.palette.background,
-    color: theme.palette.primary.light,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  },
+    marginTop: 65
+  }
 }));
 
 const App = () => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className="scroll">
       <CssBaseline />
       <BrowserRouter>
         <Navbar />
+
         <Switch>
           <Route path="/past-work">
             <Container maxWidth="xl" className={classes.root}>
@@ -34,7 +34,9 @@ const App = () => {
             </Container>
           </Route>
           <Route path="/">
-            <LandingPage />
+            <Container maxWidth="xl" className={classes.root}>
+              <LandingPage />
+            </Container>
           </Route>
         </Switch>
       </BrowserRouter>

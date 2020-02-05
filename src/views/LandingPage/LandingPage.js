@@ -11,26 +11,23 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.light,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-  },
-  title: {
-    fontSize: theme.fonts.title.fontSize,
+    alignItems: "center"
   },
   gridContainer: {
     alignItems: "center",
     marginTop: 5,
-    width: "80vw",
+    width: "80vw"
   },
   paper: {
     backgroundColor: "black",
     color: theme.palette.primary.main,
     height: "80vw",
-    cursor: "pointer",
+    cursor: "pointer"
   },
   thumbnail: {
     height: "100%",
     width: "100%",
-    objectFit: "cover",
+    objectFit: "cover"
   },
   descriptionWrapper: {
     position: "absolute",
@@ -42,12 +39,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
 
     "&:hover": {
-      color: "red",
-    },
+      color: "red"
+    }
   },
   description: {
     // display: "none"
-  },
+  }
 }));
 
 function LandingPage() {

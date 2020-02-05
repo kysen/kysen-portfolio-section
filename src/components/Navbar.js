@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { Toolbar, Tabs, Tab } from "@material-ui/core";
+import { AppBar, Toolbar, Tabs, Tab, Button } from "@material-ui/core";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -15,7 +15,7 @@ function ListItemLink(props) {
       React.forwardRef((itemProps, ref) => (
         <RouterLink to={to} ref={ref} {...itemProps} />
       )),
-    [to],
+    [to]
   );
 
   return (
@@ -30,7 +30,7 @@ function ListItemLink(props) {
 ListItemLink.propTypes = {
   icon: PropTypes.element,
   primary: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired
 };
 
 const useStyles = makeStyles(theme => ({
@@ -39,15 +39,14 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "flex-end",
     indicator: "none",
-    marginRight: "8%",
+    marginRight: "8%"
   },
 
   tabs: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "stretch",
-    color: theme.palette.primary.main,
-  },
+    alignItems: "stretch"
+  }
 }));
 
 function usePageViews(setValue) {
@@ -69,22 +68,25 @@ function Navbar() {
   };
 
   return (
-    <Toolbar className={classes.splitNavbar}>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        aria-label="simple tabs example"
-        className={classes.tabs}
-      >
-        <Tab label="About" value="/" component={RouterLink} to={"/"} />
-        <Tab
-          label="Past Work"
-          value="/past-work"
-          component={RouterLink}
-          to={"/past-work"}
-        />
-      </Tabs>
-    </Toolbar>
+    <AppBar>
+      <Toolbar className={classes.splitNavbar}>
+        <Button>Hi</Button>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="simple tabs example"
+          className={classes.tabs}
+        >
+          <Tab label="About" value="/" component={RouterLink} to={"/"} />
+          <Tab
+            label="Past Work"
+            value="/past-work"
+            component={RouterLink}
+            to={"/past-work"}
+          />
+        </Tabs>
+      </Toolbar>
+    </AppBar>
   );
 }
 
