@@ -1,11 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Tabs, Tab, Button } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { AppBar, Toolbar, Tabs, Tab, IconButton } from "@material-ui/core";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { Link as RouterLink, useLocation } from "react-router-dom";
+
+const AntTabs = withStyles(theme => ({
+  indicator: {
+    backgroundColor: theme.palette.primary.light,
+
+    // display: "none",
+  },
+}))(props => <Tabs {...props} />);
 
 function ListItemLink(props) {
   const { primary, to } = props;
@@ -15,7 +25,7 @@ function ListItemLink(props) {
       React.forwardRef((itemProps, ref) => (
         <RouterLink to={to} ref={ref} {...itemProps} />
       )),
-    [to]
+    [to],
   );
 
   return (
@@ -30,23 +40,22 @@ function ListItemLink(props) {
 ListItemLink.propTypes = {
   icon: PropTypes.element,
   primary: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired
+  to: PropTypes.string.isRequired,
 };
 
-const useStyles = makeStyles(theme => ({
-  root: {},
+const useStyles = makeStyles(() => ({
   splitNavbar: {
     display: "flex",
     justifyContent: "flex-end",
     indicator: "none",
-    marginRight: "8%"
+    marginRight: "8%",
   },
 
   tabs: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "stretch"
-  }
+    alignItems: "stretch",
+  },
 }));
 
 function usePageViews(setValue) {
@@ -56,7 +65,7 @@ function usePageViews(setValue) {
   }, [setValue, location]);
 }
 
-function Navbar() {
+function Navbar({ currentTheme, toggleDarkTheme }) {
   const classes = useStyles();
   const [value, setValue] = React.useState("/");
 
@@ -70,21 +79,38 @@ function Navbar() {
   return (
     <AppBar>
       <Toolbar className={classes.splitNavbar}>
-        <Button>Hi</Button>
-        <Tabs
+        <AntTabs
           value={value}
           onChange={handleChange}
-          aria-label="simple tabs example"
           className={classes.tabs}
+          TabIndicatorProps={{}}
         >
-          <Tab label="About" value="/" component={RouterLink} to={"/"} />
           <Tab
+            disableRipple
+            label="About"
+            value="/"
+            component={RouterLink}
+            to={"/"}
+          />
+          <Tab
+            disableRipple
             label="Past Work"
             value="/past-work"
             component={RouterLink}
             to={"/past-work"}
           />
-        </Tabs>
+        </AntTabs>
+        <IconButton
+          aria-label="add an alarm"
+          onClick={toggleDarkTheme}
+          color="inherit"
+        >
+          {currentTheme.palette.type === "dark" ? (
+            <Brightness4Icon />
+          ) : (
+            <Brightness7Icon />
+          )}
+        </IconButton>
       </Toolbar>
     </AppBar>
   );

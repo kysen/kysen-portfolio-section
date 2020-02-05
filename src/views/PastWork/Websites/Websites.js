@@ -107,7 +107,7 @@ function Websites() {
 
   return (
     <div className={classes.websitesRoot}>
-      <Typography variant="h3" className={classes.title} color="primary">
+      <Typography variant="h3" className={classes.title}>
         Websites
       </Typography>
       <Grid container spacing={8} className={classes.gridContainer}>
