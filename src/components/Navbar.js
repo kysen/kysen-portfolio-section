@@ -4,6 +4,8 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Tabs, Tab, IconButton } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import EmailIcon from '@material-ui/icons/Email';
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -76,6 +78,10 @@ function Navbar({ currentTheme, toggleDarkTheme }) {
     setValue(newValue);
   };
 
+  const handleLink = (link) => {
+    window.location.href = link
+  }
+
   return (
     <AppBar>
       <Toolbar className={classes.splitNavbar}>
@@ -101,7 +107,7 @@ function Navbar({ currentTheme, toggleDarkTheme }) {
           />
         </AntTabs>
         <IconButton
-          aria-label="add an alarm"
+          aria-label="toggle dark theme"
           onClick={toggleDarkTheme}
           color="inherit"
         >
@@ -111,6 +117,19 @@ function Navbar({ currentTheme, toggleDarkTheme }) {
             <Brightness7Icon />
           )}
         </IconButton>
+        <IconButton
+          aria-label="linkedin button"
+          onClick={() => handleLink('https://www.linkedin.com/in/kysenjackman/')}
+        >
+          <LinkedInIcon />
+        </IconButton>
+        <IconButton
+          aria-label="linkedin button"
+          href="mailto:kysenj@gmail.com"
+        >
+          <EmailIcon />
+        </IconButton>
+        
       </Toolbar>
     </AppBar>
   );

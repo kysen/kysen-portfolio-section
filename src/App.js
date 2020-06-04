@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+// import Footer from "./components/Footer";
+
 import LandingPage from "./views/LandingPage/LandingPage";
 import PastWork from "./views/PastWork/PastWork";
 
@@ -68,6 +70,7 @@ const App = () => {
               </Container>
             </Route>
           </Switch>
+          {/* <Footer /> */}
         </BrowserRouter>
       </div>
     </ThemeProvider>
