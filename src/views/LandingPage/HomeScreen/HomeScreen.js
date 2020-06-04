@@ -34,8 +34,10 @@ function HomeScreen() {
         </Typography>
         <Typography component="div" className={classes.header} variant="h5">
           <Box textAlign="center">
-            Portfolio Website for Kysen Jackman, Fullstack Web Developer with
-            React.js and Python
+            Portfolio Website for Kysen Jackman, Fullstack Web Developer
+          </Box>{" "}
+          <Box textAlign="center">
+            Built with React.js
           </Box>{" "}
         </Typography>
         <Typography component="div" className={classes.header} variant="h6">
