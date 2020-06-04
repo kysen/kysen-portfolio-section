@@ -120,12 +120,14 @@ function Navbar({ currentTheme, toggleDarkTheme }) {
         <IconButton
           aria-label="linkedin button"
           onClick={() => handleLink('https://www.linkedin.com/in/kysenjackman/')}
+          color="inherit"
         >
           <LinkedInIcon />
         </IconButton>
         <IconButton
           aria-label="linkedin button"
           href="mailto:kysenj@gmail.com"
+          color="inherit"
         >
           <EmailIcon />
         </IconButton>

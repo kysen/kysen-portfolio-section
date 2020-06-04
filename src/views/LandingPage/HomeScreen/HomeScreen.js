@@ -27,9 +27,7 @@ function HomeScreen() {
 
   return (
     <div className={classes.root}>
-      <div >
-        <img src={faceshot} alt=""></img>
-      </div>
+        <img style={{height: 'calc(100vh - 64px'}} src={faceshot} alt=""></img>
       <div className={classes.right}>
         <Typography component="div" className={classes.header} variant="h2">
           <Box textAlign="center">Kysen Jackman</Box>{" "}
