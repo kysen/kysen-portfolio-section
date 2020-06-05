@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import LandingPage from "./views/LandingPage/LandingPage";
 import PastWork from "./views/PastWork/PastWork";
 
-import { CssBaseline, Container, ThemeProvider } from "@material-ui/core";
+import { CssBaseline, Container, ThemeProvider, useMediaQuery } from "@material-ui/core";
 import {
   makeStyles,
   createMuiTheme,
@@ -15,14 +15,15 @@ import {
 } from "@material-ui/core/styles";
 import indigo from "@material-ui/core/colors/indigo";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles({
   root: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 64,
+    marginTop: media => media ? 56 : 64 ,
   },
-}));
+});
+
 
 const App = () => {
   const [currentTheme, setTheme] = React.useState({
@@ -31,7 +32,10 @@ const App = () => {
       primary: indigo,
     },
   });
-  const classes = useStyles();
+  const media = useMediaQuery('(max-width:600px)');
+  
+  console.log(media, 'hi')
+  const classes = useStyles(media);
 
   const toggleDarkTheme = () => {
     let newPaletteType =
@@ -66,7 +70,7 @@ const App = () => {
             </Route>
             <Route path="/">
               <Container maxWidth="xl" className={classes.root}>
-                <LandingPage />
+                <LandingPage media={media} />
               </Container>
             </Route>
           </Switch>

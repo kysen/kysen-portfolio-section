@@ -12,12 +12,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function LandingPage() {
+function LandingPage(props) {
   const classes = useStyles();
 
   return (
     <Container maxWidth="xl" className={classes.root}>
-      <HomeScreen />
+      <HomeScreen media={props.media} />
     </Container>
   );
 }

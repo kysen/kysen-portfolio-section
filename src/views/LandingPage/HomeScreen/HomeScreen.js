@@ -4,11 +4,12 @@ import { Typography, Box } from "@material-ui/core";
 
 import faceshot from "../../../assets/images/face-shot/kysen-faceshot.png";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     display: 'flex',
     alignItems: 'flex-start',
     width: '100vw',
+    flexDirection: matches => matches ? 'column-reverse' : 'row'
   },
   header: {
     marginTop: 60,
@@ -19,15 +20,19 @@ const useStyles = makeStyles(theme => ({
   right: {
     padding: '0px 40px',
     flexGrow: 1,
+  },
+  image: {
+    height: 'calc(100vh - 64px)'
   }
-}));
+})
 
-function HomeScreen() {
-  const classes = useStyles();
+function HomeScreen(props) {
+  const media = props.media;
+  const classes = useStyles(media);
 
   return (
     <div className={classes.root}>
-        <img style={{height: 'calc(100vh - 64px'}} src={faceshot} alt=""></img>
+      <img className={classes.image} style={media ? {height: 'calc(100vh - 56px)'} : {}} src={faceshot} alt=""></img>
       <div className={classes.right}>
         <Typography component="div" className={classes.header} variant="h2">
           <Box textAlign="center">Kysen Jackman</Box>{" "}
